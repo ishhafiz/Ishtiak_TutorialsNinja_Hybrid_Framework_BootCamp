@@ -1,37 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="7" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-04-15T18:12:31 CDT" name="Default suite" finished-at="2023-04-15T18:12:46 CDT" duration-ms="15469">
+  <suite started-at="2023-04-27T19:17:31Z" name="Default suite" finished-at="2023-04-27T19:18:14Z" duration-ms="42984">
     <groups>
     </groups>
-    <test started-at="2023-04-15T18:12:31 CDT" name="Default test" finished-at="2023-04-15T18:12:46 CDT" duration-ms="15469">
-      <class name="com.tn.qa.testcases.RegisterTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.RegisterTest@449a4f23]" started-at="2023-04-15T18:12:31 CDT" name="setUp" finished-at="2023-04-15T18:12:38 CDT" duration-ms="7413" status="PASS">
+    <test started-at="2023-04-27T19:17:31Z" name="Default test" finished-at="2023-04-27T19:18:14Z" duration-ms="42984">
+      <class name="com.tn.qa.testcases.LoginTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:31Z" name="setUp" finished-at="2023-04-27T19:17:38Z" duration-ms="6953" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyTnRegistrationWithValidUserNameAndValidPassword()[pri:1, instance:com.tn.qa.testcases.RegisterTest@449a4f23]" started-at="2023-04-15T18:12:38 CDT" name="verifyTnRegistrationWithValidUserNameAndValidPassword" finished-at="2023-04-15T18:12:39 CDT" duration-ms="1333" status="PASS">
+        <test-method signature="verifyLoginWithValidUserNameAndValidPassword()[pri:1, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:38Z" name="verifyLoginWithValidUserNameAndValidPassword" finished-at="2023-04-27T19:17:39Z" duration-ms="933" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyTnRegistrationWithValidUserNameAndValidPassword -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.RegisterTest@449a4f23]" started-at="2023-04-15T18:12:39 CDT" name="tearDown" finished-at="2023-04-15T18:12:39 CDT" duration-ms="148" status="PASS">
+        </test-method> <!-- verifyLoginWithValidUserNameAndValidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:39Z" name="tearDown" finished-at="2023-04-27T19:17:39Z" duration-ms="93" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.RegisterTest@449a4f23]" started-at="2023-04-15T18:12:39 CDT" name="setUp" finished-at="2023-04-15T18:12:45 CDT" duration-ms="5320" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:39Z" name="setUp" finished-at="2023-04-27T19:17:44Z" duration-ms="5112" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyTnRegistrationWithInvalidUserNameAndInvalidPassword()[pri:2, instance:com.tn.qa.testcases.RegisterTest@449a4f23]" started-at="2023-04-15T18:12:45 CDT" name="verifyTnRegistrationWithInvalidUserNameAndInvalidPassword" finished-at="2023-04-15T18:12:46 CDT" duration-ms="1024" status="PASS">
+        <test-method signature="verifyLoginWithInvalidUserNameAndInvalidPassword()[pri:2, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:44Z" name="verifyLoginWithInvalidUserNameAndInvalidPassword" finished-at="2023-04-27T19:17:44Z" duration-ms="666" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyTnRegistrationWithInvalidUserNameAndInvalidPassword -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.RegisterTest@449a4f23]" started-at="2023-04-15T18:12:46 CDT" name="tearDown" finished-at="2023-04-15T18:12:46 CDT" duration-ms="169" status="PASS">
+        </test-method> <!-- verifyLoginWithInvalidUserNameAndInvalidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:44Z" name="tearDown" finished-at="2023-04-27T19:17:45Z" duration-ms="104" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.tn.qa.testcases.RegisterTest -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:45Z" name="setUp" finished-at="2023-04-27T19:17:50Z" duration-ms="5049" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyLoginWithValidUserNameAndInvalidPassword()[pri:3, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:50Z" name="verifyLoginWithValidUserNameAndInvalidPassword" finished-at="2023-04-27T19:17:50Z" duration-ms="632" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginWithValidUserNameAndInvalidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:50Z" name="tearDown" finished-at="2023-04-27T19:17:50Z" duration-ms="101" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:50Z" name="setUp" finished-at="2023-04-27T19:17:55Z" duration-ms="5024" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyLoginWithInvalidUserNameAndValidPassword()[pri:4, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:55Z" name="verifyLoginWithInvalidUserNameAndValidPassword" finished-at="2023-04-27T19:17:56Z" duration-ms="732" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginWithInvalidUserNameAndValidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:56Z" name="tearDown" finished-at="2023-04-27T19:17:56Z" duration-ms="92" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:17:56Z" name="setUp" finished-at="2023-04-27T19:18:01Z" duration-ms="5079" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyLoginWithValidUserNameAndEmptyPasswordField()[pri:5, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:01Z" name="verifyLoginWithValidUserNameAndEmptyPasswordField" finished-at="2023-04-27T19:18:02Z" duration-ms="644" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginWithValidUserNameAndEmptyPasswordField -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:02Z" name="tearDown" finished-at="2023-04-27T19:18:02Z" duration-ms="92" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:02Z" name="setUp" finished-at="2023-04-27T19:18:07Z" duration-ms="5023" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyLoginWithEmptyUserNameFieldAndValidPassword()[pri:6, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:07Z" name="verifyLoginWithEmptyUserNameFieldAndValidPassword" finished-at="2023-04-27T19:18:08Z" duration-ms="605" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginWithEmptyUserNameFieldAndValidPassword -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:08Z" name="tearDown" finished-at="2023-04-27T19:18:08Z" duration-ms="86" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:08Z" name="setUp" finished-at="2023-04-27T19:18:13Z" duration-ms="5233" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyLoginWithEmptyUserNameFieldAndEmptyPasswordField()[pri:7, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:13Z" name="verifyLoginWithEmptyUserNameFieldAndEmptyPasswordField" finished-at="2023-04-27T19:18:13Z" duration-ms="573" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLoginWithEmptyUserNameFieldAndEmptyPasswordField -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:13Z" name="tearDown" finished-at="2023-04-27T19:18:14Z" duration-ms="134" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="exitDriver()[pri:0, instance:com.tn.qa.testcases.LoginTest@1b84f475]" started-at="2023-04-27T19:18:14Z" name="exitDriver" finished-at="2023-04-27T19:18:14Z" duration-ms="55" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exitDriver -->
+      </class> <!-- com.tn.qa.testcases.LoginTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

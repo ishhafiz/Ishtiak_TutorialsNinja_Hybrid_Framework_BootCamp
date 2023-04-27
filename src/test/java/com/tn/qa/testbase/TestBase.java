@@ -29,7 +29,7 @@ public class TestBase {
 		
 		dataprop = new Properties();
 		ip = new FileInputStream(System.getProperty("user.dir") + "\\src\\test\\java\\com\\tn\\qa\\testdata\\testData.properties");
-		prop.load(ip);
+		dataprop.load(ip);
 	}
 
 	public WebDriver initializeBrowserAndOpenApplication(String browserName) {

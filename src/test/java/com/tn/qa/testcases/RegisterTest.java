@@ -1,17 +1,17 @@
 package com.tn.qa.testcases;
 
-import java.time.Duration;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.WebDriver;
 import org.testng.asserts.SoftAssert;
 
+import com.tn.qa.pages.LandingPage;
+import com.tn.qa.pages.RegisterPage;
 import com.tn.qa.testbase.TestBase;
 import com.tn.qa.utils.Utilities;
+
+import enums.RegistrationPageEnums;
 
 public class RegisterTest extends TestBase {
 
@@ -22,56 +22,106 @@ public class RegisterTest extends TestBase {
 	public WebDriver driver;
 	public SoftAssert softassert = new SoftAssert();
 
+	
 	@BeforeMethod
 	public void setUp() {
 		driver = initializeBrowserAndOpenApplication("Chrome");
-		driver.findElement(By.linkText("My Account")).click();
-		driver.findElement(By.linkText("Register")).click();
+		LandingPage landingpage = new LandingPage(driver);
+		landingpage.openRegistrationPage();
+
 	}
 
 	@Test(priority = 1)
 	public void verifyTnRegistrationWithValidUserNameAndValidPassword() {
-		driver.findElement(By.id("input-firstname")).sendKeys("Ishtiak");
-		driver.findElement(By.id("input-lastname")).sendKeys("Hafiz");
-		driver.findElement(By.id("input-email")).sendKeys(Utilities.generateEmailWithTimeStamp());
-		driver.findElement(By.id("input-telephone")).sendKeys("267-770-4693");
-		driver.findElement(By.id("input-password")).sendKeys("I$hninja1207");
-		driver.findElement(By.id("input-confirm")).sendKeys("I$hninja1207");
-		boolean contBtnDisplayed = driver.findElement(By.cssSelector("input.btn.btn-primary")).isDisplayed();
-		softassert.assertEquals(contBtnDisplayed, true, "Continue button is not displayed");
-		driver.findElement(By.xpath("//label[@class='radio-inline'][2]/input")).click();
-		driver.findElement(By.xpath("//input[@name='agree']")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
-		softassert.assertAll();
-		System.out.println("Successfully validated registration with valid credentials.");
+		RegisterPage registerpage = new RegisterPage(driver);
+		
+		registerpage.registerWithCredentials(dataprop.getProperty("firstName"), dataprop.getProperty("lastName"),
+				Utilities.generateEmailWithTimeStamp(), dataprop.getProperty("telephone"),
+				dataprop.getProperty("validPassword"),dataprop.getProperty("validPassword"), true,true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.VALID_USERNAME_VALID_PASSWORD.credentialValidity.toString());
 	}
 
 	@Test(priority = 2)
 	public void verifyTnRegistrationWithInvalidUserNameAndInvalidPassword() {
-		driver.findElement(By.id("input-firstname")).sendKeys("Ishtiak");
-		driver.findElement(By.id("input-lastname")).sendKeys("Hafiz");
-		driver.findElement(By.id("input-email")).sendKeys("abc@123");
-		driver.findElement(By.id("input-telephone")).sendKeys("267-770-4693");
-		driver.findElement(By.id("input-password")).sendKeys("123");
-		driver.findElement(By.id("input-confirm")).sendKeys("123");
-		driver.findElement(By.xpath("//label[@class='radio-inline'][2]/input")).click();
-		driver.findElement(By.xpath("//input[@name='agree']")).click();
-		driver.findElement(By.xpath("//input[@value='Continue']")).click();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-		String actualEmailWarningMessage = driver
-				.findElement(By.xpath("//input[@id='input-email']//following-sibling::div")).getText();
-		String expectedEmailWarningMessage = "E-Mail Address does not appear to be valid!";
-		softassert.assertEquals(actualEmailWarningMessage, expectedEmailWarningMessage);
-		String actualPasswordWarningMessage = driver
-				.findElement(By.xpath("//input[@id='input-password']//following-sibling::div")).getText();
-		String expectePassworddWarningMessage = "Password must be between 4 and 20 characters!";
-		softassert.assertEquals(actualPasswordWarningMessage, expectePassworddWarningMessage);
-		softassert.assertAll();
-		System.out.println("Successfully validated registration with invalid credentials.");
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials(dataprop.getProperty("firstName"), dataprop.getProperty("lastName"),
+				dataprop.getProperty("invalidEmail"), dataprop.getProperty("telephone"), dataprop.getProperty("invalidPassword"), dataprop.getProperty("invalidPassword"),
+				false, true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.INVALID_USERNAME_INVALID_PASSWORD.credentialValidity.toString());
 	}
 
+	@Test(priority = 3)
+	public void verifyTnReRegistrationWithValidUserNameAndValidPassword() {
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials(dataprop.getProperty("firstName"), dataprop.getProperty("lastName"),
+				dataprop.getProperty("email"), dataprop.getProperty("telephone"), dataprop.getProperty("validPassword"),dataprop.getProperty("validPassword"),true, true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.REREGISTER_VALID_USERNAME_VALID_PASSWORD.credentialValidity.toString());
+
+	}
+
+	@Test(priority = 4)
+	public void verifyTnRegistrationWithValidUserNameAndInvalidConfirmPassword() {
+
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials(dataprop.getProperty("firstName"), dataprop.getProperty("lastName"),
+				dataprop.getProperty("email"), dataprop.getProperty("telephone"),
+				dataprop.getProperty("validPassword"),dataprop.getProperty("invalidPassword"),true, true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.VALID_USERNAME_INVALID_CONF_PASSWORD.credentialValidity.toString());
+
+	}
+
+	@Test(priority = 5)
+	public void verifyTnRegistrationWithEmptyFields() {
+
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials("", "", "", "", "","", false, true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.REGISTRATION_EMPTY_FIELDS.credentialValidity.toString());
+
+	}
+
+	@Test(priority = 6)
+	public void verifyTnRegistrationWithEmptyFirstnameAndLastname() {
+
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials("", "", Utilities.generateEmailWithTimeStamp(),
+				dataprop.getProperty("telephone"), dataprop.getProperty("validPassword"),dataprop.getProperty("validPassword"), false, true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.REG_EMPT_FNAME_LNAME_VALID_USER_PASS.credentialValidity.toString());
+
+	}
+
+	@Test(priority = 7)
+	public void verifyTnRegistrationWithEmptyTelephoneAndEmail() {
+		
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials(dataprop.getProperty("firstName"), dataprop.getProperty("lastName"),
+				"", "",
+			dataprop.getProperty("validPassword"),dataprop.getProperty("validPassword"),true, true);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.REG_EMPT_PHONE_EMPT_EMAIL.credentialValidity.toString());
+	}
+
+	@Test(priority = 8)
+	public void verifyTnRegistrationWithoutClickingPrivacyPolicyCheckbox() {
+		
+		RegisterPage registerpage = new RegisterPage(driver);
+		registerpage.registerWithCredentials(dataprop.getProperty("firstName"), dataprop.getProperty("lastName"),
+				Utilities.generateEmailWithTimeStamp(), dataprop.getProperty("telephone"),
+				dataprop.getProperty("validPassword"),dataprop.getProperty("validPassword"), true, false);
+		registerpage.assertRegistrationDetails(
+				RegistrationPageEnums.REG_WITHOUT_PVC_PLC_CHKBOX.credentialValidity.toString());
+
+	}
+
+	
 	@AfterMethod
 	public void tearDown() {
+		driver.close();
 		driver.quit();
 	}
 }

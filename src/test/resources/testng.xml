@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="TutorialsNinja Hybrid Automation Suite">
+
+	<listeners>
+		<listener class-name="com.tn.qa.listeners.MyListeners" />
+	</listeners>
+
+	<test name="TN Register Tests">
+		<classes>
+			<class name="com.tn.qa.testcases.RegisterTest" />
+		</classes>
+	</test>
+
+	<test name="TN Login Tests">
+		<classes>
+			<class name="com.tn.qa.testcases.LoginTest" />
+		</classes>
+	</test>
+
+	<test name="TN Search Products Tests">
+		<classes>
+			<class name="com.tn.qa.testcases.SearchProductsTest" />
+		</classes>
+	</test> <!-- Test -->
+
+</suite> <!-- Suite -->

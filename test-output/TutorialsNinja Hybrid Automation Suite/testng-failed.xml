@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [TutorialsNinja Hybrid Automation Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.tn.qa.listeners.MyListeners"/>
+  </listeners>
+  <test thread-count="5" name="TN Register Tests(failed)">
+    <classes>
+      <class name="com.tn.qa.testcases.RegisterTest">
+        <methods>
+          <include name="verifyTnRegistrationWithValidUserNameAndInvalidConfirmPassword"/>
+          <include name="verifyTnRegistrationWithoutClickingPrivacyPolicyCheckbox"/>
+          <include name="verifyTnRegistrationWithEmptyFirstnameAndLastname"/>
+          <include name="verifyTnRegistrationWithEmptyTelephoneAndEmail"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="verifyTnRegistrationWithEmptyFields"/>
+        </methods>
+      </class> <!-- com.tn.qa.testcases.RegisterTest -->
+    </classes>
+  </test> <!-- TN Register Tests(failed) -->
+</suite> <!-- Failed suite [TutorialsNinja Hybrid Automation Suite] -->

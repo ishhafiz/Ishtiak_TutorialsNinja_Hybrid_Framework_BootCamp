@@ -1,0 +1,5 @@
+com\tn\qa\utils\Utilities.class
+enums\LoginMessagesEnum.class
+enums\TestdataValidityEnum.class
+com\tn\qa\utils\MyExtentReporter.class
+enums\RegistrationPageEnums.class
